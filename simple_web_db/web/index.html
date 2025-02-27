@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+<head>
+    <title>Tank and SOAP Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Function to call SOAP service
+        function callSoapService() {
+            const name = document.getElementById("soapName").value;
+
+            // Sending request to SOAP service
+            fetch("MySoapWebService", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "name=" + encodeURIComponent(name)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("soapResult").innerText = data;
+                })
+                .catch(err => console.error("Error:", err));
+        }
+
+        // Function to get tanks from RESTful service
+        function fetchTanks() {
+            fetch("TankService")
+                .then(response => response.json())
+                .then(data => {
+                    const tankList = document.getElementById("tankList");
+                    tankList.innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(err => console.error(err));
+        }
+
+        // Function to add a tank to the RESTful service
+        function addTank() {
+            const name = document.getElementById("tankName").value;
+            const country = document.getElementById("tankCountry").value;
+            const gunCaliber = document.getElementById("tankGunCaliber").value;
+            const frontArmor = document.getElementById("tankFrontArmor").value;
+            const speed = document.getElementById("tankSpeed").value;
+            const crew = document.getElementById("tankCrew").value;
+
+            const data = `name=${encodeURIComponent(name)}&country=${encodeURIComponent(country)}&gunCaliber=${encodeURIComponent(gunCaliber)}&frontArmor=${encodeURIComponent(frontArmor)}&speed=${encodeURIComponent(speed)}&crew=${encodeURIComponent(crew)}`;
+
+            // Sending POST request to add tank
+            fetch("TankService", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: data
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("addTankResult").innerText = data;
+                })
+                .catch(err => console.error("Error:", err));
+        }
+    </script>
+</head>
+<body>
+    <h1>Index Page</h1>
+
+
+
+    <!-- RESTful Tank Service Section -->
+    <h2>Tank Management (RESTful)</h2>
+    <h3>Add Tank</h3>
+    <input type="text" id="tankName" placeholder="Tank Name"><br>
+    <input type="text" id="tankCountry" placeholder="Country"><br>
+    <input type="number" id="tankGunCaliber" placeholder="Gun Caliber"><br>
+    <input type="number" id="tankFrontArmor" placeholder="Front Armor"><br>
+    <input type="number" id="tankSpeed" placeholder="Speed"><br>
+    <input type="number" id="tankCrew" placeholder="Crew"><br>
+    <button onclick="addTank()">Add Tank</button>
+    <p id="addTankResult"></p>
+
+    <h3>View All Tanks</h3>
+    <button onclick="fetchTanks()">View Tanks</button>
+    <pre id="tankList"></pre>
+</body>
+</html>
