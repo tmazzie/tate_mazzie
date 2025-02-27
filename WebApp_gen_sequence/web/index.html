@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+<head>
+    <title>SOAP Web Service Client</title>
+    <script>
+        // Function to call the 'hello' web service method
+        function callHello() {
+            const name = document.getElementById("name").value;
+            const soapRequest = `
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dcs="http://lab8.dcs/">
+                   <soapenv:Header/>
+                   <soapenv:Body>
+                      <dcs:hello>
+                         <name>${name}</name>
+                      </dcs:hello>
+                   </soapenv:Body>
+                </soapenv:Envelope>
+            `;
+
+            sendSoapRequest(soapRequest, "helloResult", "ooh ");
+        }
+        
+
+        // Function to call the 'add' web service method
+        function callAdd() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const soapRequest = `
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dcs="http://lab8.dcs/">
+                   <soapenv:Header/>
+                   <soapenv:Body>
+                      <dcs:add>
+                         <a>${num1}</a>
+                         <b>${num2}</b>
+                      </dcs:add>
+                   </soapenv:Body>
+                </soapenv:Envelope>
+            `;
+
+            sendSoapRequest(soapRequest, "addResult", "Addition: ");
+        }
+        // Function to call the 'generateSequence' web service method
+        function callGenerateSequence() {
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+            const points = document.getElementById("points").value;
+            const stdDev = document.getElementById("stdDev").value;
+
+            const soapRequest = `
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dcs="http://lab8.dcs/">
+                   <soapenv:Header/>
+                   <soapenv:Body>
+                      <dcs:generateSequence>
+                         <function>0.5*log10(x)</function> <!-- Example predefined function -->
+                         <start>${start}</start>
+                         <end>${end}</end>
+                         <points>${points}</points>
+                         <stdDev>${stdDev}</stdDev>
+                      </dcs:generateSequence>
+                   </soapenv:Body>
+                </soapenv:Envelope>
+            `;
+
+            sendSoapRequest(soapRequest, "sequenceResult", "Generated Sequence: ");
+        }
+
+
+        // Function to send the SOAP request and update a specific result element
+        function sendSoapRequest(soapRequest, resultId, label) {
+            const xhr = new XMLHttpRequest();
+            const endpoint = "http://localhost:8083/WebApplication2/FirstWS";
+
+            xhr.open("POST", endpoint, true);
+            xhr.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    const resultElement = document.getElementById(resultId);
+
+                    if (xhr.status === 200) {
+                        const response = xhr.responseText;
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(response, "text/xml");
+
+                        // Extract the result from the SOAP response
+                        const result = xmlDoc.getElementsByTagName("return")[0]?.textContent;
+                        if (result) {
+                            resultElement.textContent = label + result;
+                        } else {
+                            resultElement.textContent = "No result found in the response.";
+                        }
+                    } else {
+                        console.error("Error: ", xhr.statusText);
+                        resultElement.textContent = "Error: " + xhr.statusText;
+                    }
+                }
+            };
+
+            xhr.send(soapRequest);
+        }
+    </script>
+</head>
+<body>
+    <h1>SOAP Web Service Client</h1>
+
+    <!-- Section to call 'hello' method -->
+    <div>
+        <h2>Call 'Hello' Method</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+        <button onclick="callHello()">Say Hello</button>
+    </div>
+
+    <!-- Section to call 'add' method -->
+    <div>
+        <h2>Call 'Add' Method</h2>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1" />
+        <br />
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2" />
+        <br />
+        <button onclick="callAdd()">Add Numbers</button>
+    </div>
+    
+    <div>
+        <h2>Generate Sequence</h2>
+        <label for="start">Start:</label>
+        <input type="text" id="start" />
+        <br />
+        <label for="end">End:</label>
+        <input type="text" id="end" />
+        <br />
+        <label for="points">Points:</label>
+        <input type="text" id="points" />
+        <br />
+        <label for="stdDev">Standard Deviation:</label>
+        <input type="text" id="stdDev" />
+        <br />
+        <button onclick="callGenerateSequence()">Generate Sequence</button>
+         <h2>View Generated Sequence Table</h2>
+        <button type="submit">Generate Table</button>
+
+    </div>
+    
+
+
+
+
+    <!-- Section to display results -->
+    <div>
+        <h2>Results</h2>
+        <p id="helloResult">No hello result yet.</p>
+        <p id="addResult">No add result yet.</p>
+        <p id="sequenceResult">No sequence generated yet.</p>
+
+    </div>
+</body>
+</html>
