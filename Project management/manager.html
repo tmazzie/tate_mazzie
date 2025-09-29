@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manager Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <h2>Manager Panel</h2>
+        <nav>
+            <a href="#dashboard" onclick="showSection('dashboard')">🌀 Dashboard</a>
+            <a href="#projects" onclick="showSection('projects')">📁 Projects</a>
+            <a href="#tasks" onclick="showSection('tasks')">✅ Tasks</a>
+            <a href="#team" onclick="showSection('team')">👥 Team</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h1>Manager Dashboard</h1>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+        </header>
+
+        <div id="hamburgerMenu" class="hamburger-menu">
+            <a href="manager.html">Manager</a>
+            <a href="member.html">Team Member</a>
+        </div>
+
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <div class="stats">
+                <div class="stat-box blue"><h3 id="projectCount">0</h3><p>Projects</p></div>
+                <div class="stat-box green"><h3 id="taskCount">0</h3><p>Total Tasks</p></div>
+                <div class="stat-box orange"><h3 id="todoCount">0</h3><p>To Do</p></div>
+                <div class="stat-box purple"><h3 id="inProgressCount">0</h3><p>In Progress</p></div>
+                <div class="stat-box teal"><h3 id="doneCount">0</h3><p>Done</p></div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div id="projectList" class="card-container"></div>
+            <div class="form-box">
+                <h3>Create New Project</h3>
+                <input type="text" id="newProject" placeholder="Project Title">
+                <button onclick="createProject()">Create Project</button>
+            </div>
+        </section>
+
+        <section id="tasks" class="section">
+            <h2>Tasks</h2>
+            <div id="taskList" class="card-container"></div>
+            <div class="form-box">
+                <h3>Create New Task</h3>
+                <input type="text" id="newTask" placeholder="Task Title">
+                <select id="taskProject"></select>
+                <select id="taskStatus">
+                    <option>To Do</option>
+                    <option>In Progress</option>
+                    <option>Done</option>
+                </select>
+                <button onclick="createTask()">Create Task</button>
+            </div>
+        </section>
+
+        <section id="team" class="section">
+            <h2>Team</h2>
+            <ul id="teamList" class="team-list">
+                <li><span class="avatar">♾️</span> Alice – Project Manager</li>
+                <li><span class="avatar">♾️</span> Bob – Developer</li>
+                <li><span class="avatar">♾️</span> Charlie – Designer</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+<script>
+function toggleMenu() {
+    document.getElementById("hamburgerMenu").classList.toggle("show");
+}
+</script>
+</body>
+</html>
