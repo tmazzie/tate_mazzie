@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+header {
+  background: lightblue;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+}
+.menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+.menu a:hover {
+  background: #eee;
+}
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+}
+section {
+  padding: 20px;
+}
+h2 {
+  margin-top: 30px;
+}
+.survey {
+  margin: 15px 0;
+}
+.survey button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Featured survey button colors */
+.react { background: #61dafb; }
+.vue { background: #42b883; }
+.angular { background: #dd0031; }
+.python { background: #3776ab; }
+.javascript { background: lime; color: black; }
+.rust { background: #dea584; }
+.go { background: #00add8; }
+.yes { background: #28a745; }
+.no { background: #dc3545; }
+.results { background: #6c757d; }
+
+/* Dynamic survey option colors */
+.option1 { background: #61dafb; }
+.option2 { background: #42b883; }
+.option3 { background: #dd0031; }
+.option4 { background: #3776ab; }
+.option5 { background: lime; color: black; }
+.option6 { background: #dea584; }
+.option7 { background: #00add8; }
+
+.dynamic-options input {
+  margin: 5px 0;
+  padding: 5px;
+}
+.dynamic-options button {
+  margin-top: 10px;
+}

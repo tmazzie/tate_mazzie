@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Survey Website</h1>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <a href="#all-surveys">Survey</a>
+    <a href="#pulse-vote">Pulse Vote</a>
+    <a href="#trending">Trending</a>
+  </div>
+</header>
+
+<section id="pulse-vote">
+  <h2>Featured Surveys</h2>
+
+  <div class="survey" id="survey1">
+    <p>Which framework do you prefer?</p>
+    <button class="react" onclick="vote('survey1','React')">React</button>
+    <button class="vue" onclick="vote('survey1','Vue')">Vue</button>
+    <button class="angular" onclick="vote('survey1','Angular')">Angular</button>
+    <button class="results" onclick="showResults('survey1')">Results</button>
+    <div class="results-box"></div>
+  </div>
+
+  <div class="survey" id="survey2">
+    <p>Best programming language of 2025?</p>
+    <button class="python" onclick="vote('survey2','Python')">Python</button>
+    <button class="javascript" onclick="vote('survey2','JavaScript')">JavaScript</button>
+    <button class="rust" onclick="vote('survey2','Rust')">Rust</button>
+    <button class="go" onclick="vote('survey2','Go')">Go</button>
+    <button class="results" onclick="showResults('survey2')">Results</button>
+    <div class="results-box"></div>
+  </div>
+
+  <div class="survey" id="survey3">
+    <p>Do you want dark mode?</p>
+    <button class="yes" onclick="vote('survey3','Yes')">Yes</button>
+    <button class="no" onclick="vote('survey3','No')">No</button>
+    <button class="results" onclick="showResults('survey3')">Results</button>
+    <div class="results-box"></div>
+  </div>
+</section>
+
+<section id="trending">
+  <h2>Trending</h2>
+  <ul>
+    <li>Should AI replace exams in schools?</li>
+    <li>Best smartphone brand in 2025?</li>
+    <li>What’s your favorite weekend activity?</li>
+  </ul>
+</section>
+
+<section id="create-survey">
+  <h2>Create a new survey</h2>
+  <div class="survey-create">
+    <input type="text" id="newTitle" placeholder="Survey Title"><br>
+    <div class="dynamic-options" id="options">
+      <input type="text" placeholder="Option 1">
+      <input type="text" placeholder="Option 2">
+    </div>
+    <button onclick="addOption()">+ Add Option</button><br>
+    <button onclick="createSurvey()">Create Survey</button>
+  </div>
+</section>
+
+<section id="all-surveys">
+  <h2>All Surveys</h2>
+  <div id="customSurveys"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
