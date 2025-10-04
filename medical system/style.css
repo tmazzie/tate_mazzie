@@ -1,0 +1,242 @@
+/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #0077b6;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.menu a:hover {
+  background: #eee;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #0077b6;
+}
+
+/* Appointment Form */
+.appointment-form input, 
+.appointment-form select {
+  padding: 8px;
+  width: 250px;
+  margin: 5px 0;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2e4dcb;
+}
+
+#appointment button {
+  padding: 12px 25px;
+  font-size: 16px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#appointment button:hover {
+  background: #0056b3;
+}
+
+/* Appointment List */
+.appointment {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Doctor Cards */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+  color: #0077b6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background: #0096c7;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #023e8a;
+}
+
+/* Info Sections  */
+.info-section {
+  display: none;
+  padding: 20px;
+  margin: 20px;
+  background: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+p {
+    font-size: 28px; 
+      margin-left: 2.2cm;      
+     margin-right: 2.2cm;   
+}
+
+li{
+   font-size: 26px; 
+    margin-left: 3cm;      
+    margin-right: 3cm;    
+}
+
+#contact a {
+  color: #100077;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+#first
+{
+      font-size: 30px; 
+      margin-left: 1.2cm;  
+     margin-right: 2.2cm;  
+}
+
+#openingHoursSection {
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+}
+
+#openingHoursSection h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 5px;
+}
+
+#openingHoursSection table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#openingHoursSection th, 
+#openingHoursSection td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+#openingHoursSection thead tr {
+  background-color: #f2f2f2;
+}
+
+#openingHoursSection tr:hover {
+  background-color: #f9f9f9;
+}

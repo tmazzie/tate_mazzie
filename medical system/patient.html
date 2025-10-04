@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Appointment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Doctor Appointment Booking</h1>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="#book-appointment">Book Appointment</a>
+    <a href="#my-appointments">My Appointments</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section id="book-appointment">
+  <h2>Book a New Appointment</h2>
+  <div class="appointment-form">
+    <label for="patientName">Full Name:</label><br>
+    <input type="text" id="patientName" placeholder="Enter your full name"><br><br>
+
+    <label for="patientEmail">Email:</label><br>
+    <input type="email" id="patientEmail" placeholder="Enter your email"><br><br>
+
+    <label for="patientPhone">Phone:</label><br>
+    <input type="tel" id="patientPhone" placeholder="Enter your phone number"><br><br>
+
+    <label for="doctor">Choose Doctor:</label><br>
+    <select id="doctor">
+      <option value="Dr. Smith">Dr. Smith - General Practitioner</option>
+      <option value="Dr. Patel">Dr. Patel - Cardiologist</option>
+      <option value="Dr. Johnson">Dr. Johnson - Pediatrician</option>
+    </select><br><br>
+
+    <label for="appointmentDate">Select Date:</label><br>
+    <input type="date" id="appointmentDate"><br><br>
+
+    <label for="time">Select Time:</label><br>
+    <select id="time"></select><br><br>
+
+    <button onclick="bookAppointment()">Book Appointment</button>
+  </div>
+</section>
+
+<section id="my-appointments">
+  <h2>My Appointments</h2>
+  <div id="appointmentsList">No appointments booked yet.</div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div>
+    Email:
+    <a href="mailto:patientscare@gmail.com">patientscare@gmail.com</a>
+  </div>
+  <div>
+    Phone:
+    <a href="tel:+29295654">29 445 654</a>
+  </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

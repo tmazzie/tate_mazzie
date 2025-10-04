@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient’s Care</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Patient’s Care</h1>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="patient.html">Book Appointment</a>
+      <a href="#hospital-cards">Hospital Information</a>
+    </div>
+    <p> </p>
+  </header>
+
+  <!--Hospital Information Section -->
+  <section id="hospital-info" style="padding: 20px; background-color: #f8f8f8;">
+ 
+    <p id="first">
+      We offer services covered by health insurance as well as fee-for-service options. Our hospital currently houses the following specialized departments: Orthopedics, Ophthalmology, Internal Medicine, General Surgery, Clinical Oncology, Palliative Medicine, Anesthesiology, and Intensive Care.
+    </p>
+ 
+  </section>
+
+  <div id="hospital-cards" class="container">
+    <!-- Emergency -->
+    <div class="card">
+      <img src="pictures/emergency.jpeg" alt="Emergency">
+      <div class="card-content">
+        <h3>Emergency</h3>
+        <a href="javascript:void(0)" class="btn" onclick="showInfo('emergency-info')">More Info</a>
+      </div>
+    </div>
+
+    <!-- General -->
+    <div class="card">
+      <img src="pictures/general.jpeg" alt="General Medicine">
+      <div class="card-content">
+        <h3>General</h3>
+        <a href="javascript:void(0)" class="btn" onclick="showInfo('general-info')">More Info</a>      </div>
+    </div>
+
+    <!-- Cardiology -->
+    <div class="card">
+      <img src="pictures/cardiologist.jpeg" alt="Cardiology">
+      <div class="card-content">
+        <h3>Cardiology</h3>
+          <a href="javascript:void(0)" class="btn" onclick="showInfo('cardiology-info')">More Info</a>      </div>
+    </div>
+
+    <!-- Pediatrics -->
+    <div class="card">
+      <img src="pictures/pediatrician.jpeg" alt="Pediatrics">
+      <div class="card-content">
+        <h3>Pediatrics</h3>
+
+        <a href="javascript:void(0)" class="btn" onclick="showInfo('pediatric-info')">More Info</a>      </div>
+    </div>
+  </div>
+
+  <!-- Info Sections -->
+  <div id="emergency-info" class="info-section">
+    <h2>Emergency Information</h2>
+    <p>In case of emergencies, immediate medical attention is required. Contact the nearest hospital or call your local emergency hotline right away.</p>
+  </div>
+
+  <div id="general-info" class="info-section">
+    <h2>General Medicine</h2>
+    <p>General medicine covers routine health checkups, preventive care, and management of common illnesses and chronic conditions.</p>
+  </div>
+
+  <div id="cardiology-info" class="info-section">
+    <h2>Cardiology</h2>
+    <p>Cardiology specializes in diagnosing and treating heart conditions such as arrhythmias, coronary artery disease, and heart failure.</p>
+  </div>
+
+  <div id="pediatric-info" class="info-section">
+    <h2>Pediatrics</h2>
+    <p>Pediatrics focuses on the health and well-being of children, from newborns to adolescents, ensuring proper growth and development.</p>
+  </div>
+
+
+  <section>
+
+    <p>
+      Our diagnostic laboratories are outfitted with state-of-the-art equipment to ensure precision and comfort in every examination. Patients of our hospital and clinic have access to:
+    </p>
+
+      <ul>
+      <li>Magnetic Resonance Imaging Laboratory – delivering high-resolution imaging for accurate diagnosis.</li>
+      <li>Computed Tomography Laboratory – offering swift, detailed scans with minimal discomfort.</li>
+      <li>Endoscopy Laboratory – providing advanced internal imaging for precise medical insights.</li>
+      <li>Comprehensive Diagnostic Laboratory – equipped for a wide range of clinical analyses.</li>
+      <li>Ultrasound Laboratory – employing modern ultrasonic techniques for safe, efficient examination.</li>
+      <li>X-ray Laboratory – offering precise imaging with reduced exposure.</li>
+      <li>Stress Testing and HOLTER Monitoring Laboratory – dedicated to thorough cardiovascular assessments.</li>
+    </ul>
+  </section>
+
+  <section id="openingHoursSection">
+  <h2>Opening Hours</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>General Medicine</td>
+        <td>Mon–Fri: 09:00 - 18:00</td>
+      </tr>
+      <tr>
+        <td>Pediatrics</td>
+        <td>Mon–Sat: 08:00 - 17:00</td>
+      </tr>
+      <tr>
+        <td>Dermatology</td>
+        <td>Tue–Fri: 10:00 - 16:00</td>
+      </tr>
+      <tr>
+        <td>Cardiology</td>
+        <td>Mon, Wed, Fri: 09:00 - 15:00</td>
+      </tr>
+      <tr>
+        <td>Orthopedics</td>
+        <td>Mon–Thu: 09:00 - 17:00</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
